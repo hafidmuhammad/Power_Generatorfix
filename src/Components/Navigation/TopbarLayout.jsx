@@ -1,8 +1,9 @@
-import { Box, HStack, IconButton, Link, Icon, Text, Drawer, useDisclosure, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerBody } from '@chakra-ui/react'
+import { Box, HStack, IconButton, Link, Icon, Text, Drawer, useDisclosure, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerBody, Button } from '@chakra-ui/react'
 import React, { useRef } from 'react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom';
+import { BiLogOut } from 'react-icons/bi';
 
 function TopbarLayout({ navigation, children }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -20,9 +21,9 @@ function TopbarLayout({ navigation, children }) {
                 justifyContent="space-between"
                 alignItems="center"
             >
-                <Text fontSize="lg" fontWeight="bold">
-                    MyApp
-                </Text>
+                <Box fontSize="lg" fontWeight="bold" p={2} align={'center'}>
+                E-MONITORING POWER GENERATOR
+                </Box>
 
                 <IconButton
                     icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -55,6 +56,20 @@ function TopbarLayout({ navigation, children }) {
                                 <Text>{item.label}</Text>
                             </Box>
                         ))}
+                        <Box
+                            display="flex"
+                            alignItems="center"
+                            padding="1"
+                            width="100%"
+                            fontSize="lg"
+                            _hover={{ bg: 'gray.700', cursor: 'pointer' }}
+                            onClick={() => {
+                                // Logic for logout
+                            }}
+                        >
+                            <Icon as={BiLogOut} marginRight="2" />
+                            <Text>Logout</Text>
+                        </Box>
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>

@@ -1,11 +1,11 @@
-import { Box, Icon } from '@chakra-ui/react'
+import { Box,} from '@chakra-ui/react'
 import SidebarLayout from '../Components/Navigation/SidebarLayout'
 import TopbarLayout from '../Components/Navigation/TopbarLayout'
 import PropTypes from 'prop-types'
 import { useBreakpointValue } from '@chakra-ui/react'
 import { FaChartLine, FaHome, FaWpforms } from 'react-icons/fa'
-import { HiDocumentReport } from 'react-icons/hi'
-import { BiUser } from 'react-icons/bi'
+// import { HiDocumentReport } from 'react-icons/hi'
+// import { BiUser } from 'react-icons/bi'
 
 function MainLayout({ children }) {
     const isDesktop = useBreakpointValue({ base: false, lg: true })
@@ -14,8 +14,8 @@ function MainLayout({ children }) {
         { icon: FaHome, label: 'Dasboard', href: '/dasboard' },
         { icon: FaChartLine, label: 'Grafik', href: '/grafik' },
         { icon: FaWpforms, label: 'Form', href: '/form' },
-        { icon: HiDocumentReport, label: 'Report', href: '/report' },
-        { icon: BiUser, label: 'Users', href: '/report' },
+        // { icon: HiDocumentReport, label: 'Report', href: '/report' },
+        // { icon: BiUser, label: 'Users', href: '/report' },
     ]
 
     return (

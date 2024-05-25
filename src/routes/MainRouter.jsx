@@ -30,10 +30,10 @@ function MainRouter() {
             path: '/grafik',
             Element: <Grafik />
         },
-        {
-            path: '/report',
-            Element: <Report />
-        },
+        // {
+        //     path: '/report',
+        //     Element: <Report />
+        // },
 
         {
             path: '/login',

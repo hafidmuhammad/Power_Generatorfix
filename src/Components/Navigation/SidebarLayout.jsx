@@ -1,8 +1,8 @@
-import { Box, VStack, Link, Icon, Text, Stack, Flex } from '@chakra-ui/react'
+import { Box, VStack, Link, Icon, Text, Stack, Flex, Button } from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 
-function SidebarLayout({ navigation, children }) {
+function SidebarLayout({ navigation, children, onLogout }) {
     const navigate = useNavigate();
 
     return (
@@ -14,32 +14,35 @@ function SidebarLayout({ navigation, children }) {
                 p={3}>
 
                 <Flex h={'full'} direction="column" px="4" py="4">
-                <Stack spacing={8} flex={1} overflow={'auto'} >
-                    <Box fontSize="lg" fontWeight="bold" p={5} align={'center'}>
-                        E-MONITORING POWER GENERATOR
+                    <Stack spacing={8} flex={1} overflow={'auto'}>
+                        <Box fontSize="lg" fontWeight="bold" p={5} align={'center'}>
+                            E-MONITORING POWER GENERATOR
+                        </Box>
+                        <Box>
+                            <Box>Home</Box>
+                            {navigation.map((item) => (
+                                <Box
+                                    key={item.label}
+                                    display="flex"
+                                    alignItems="center"
+                                    padding="1"
+                                    width="100%"
+                                    fontSize="lg"
+                                    _hover={{ bg: 'gray.700', cursor: 'pointer' }}
+                                    onClick={() => navigate(item.href)}
+                                >
+                                    <Icon as={item.icon} marginRight="2" />
+                                    <Text>{item.label}</Text>
+                                </Box>
+                            ))}
+                        </Box>
+                    </Stack>
+                    <Box py={4}>
+                        <Button colorScheme="red" width="full" onClick={onLogout}>
+                            Logout
+                        </Button>
                     </Box>
-                <Box>
-                <Box>Home</Box>
-                {navigation.map((item) => (
-                <Box
-                    key={item.label}
-                    display="flex"
-                    alignItems="center"
-                    padding="1"
-                    width="100%"
-                    fontSize="lg"
-                    _hover={{ bg: 'gray.700', cursor: 'pointer' }}
-                    onClick={() => navigate(item.href)}
-                >
-                    <Icon as={item.icon} marginRight="2" />
-                    <Text>{item.label}</Text>
-                </Box>
-            ))}
-                </Box>
-                </Stack>
-
                 </Flex>
-
             </Box>
             <Box flex="1" p="5" h="100vh" overflowY="auto">
                 {children}
@@ -57,6 +60,7 @@ SidebarLayout.propTypes = {
         })
     ).isRequired,
     children: PropTypes.node.isRequired,
+    onLogout: PropTypes.func.isRequired,
 }
 
 export default SidebarLayout
