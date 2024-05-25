@@ -58,7 +58,7 @@ function TopbarLayout({ navigation, children }) {
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>
-            <Box padding="1rem">{children}</Box>
+            <Box flex="1" p="5" h="100vh" overflowY="auto" >{children}</Box>
         </Box>
     )
 }

@@ -6,6 +6,7 @@ import Signature from '../Page/Form/Signature';
 import Dasboard from '../Page/Dasboard/Dasboard';
 import login from '../Page/Register/Login/LoginForm';
 import LoginForm from '../Page/Register/Login/LoginForm';
+import SiginForm from '../Page/Register/SigIn/SiginForm';
 
 
 
@@ -40,7 +41,7 @@ function MainRouter() {
         },
         {
             path: '/register',
-            Element: <LoginForm />
+            Element: <SiginForm />
         },
     ];
 

@@ -10,6 +10,9 @@ const LoginForm = () => {
   const handleRegisterRedirect = () => {
     navigate('/register');
   };
+  const handleLogin = () => {
+    navigate('/dasboard');
+  };
 
   return (
     <Box maxW="md" mx="auto" mt={8} p={6} borderWidth="1px" borderRadius="lg" boxShadow="md">
@@ -37,7 +40,7 @@ const LoginForm = () => {
       <Button
         colorScheme="blue"
         width="100%"
-        // onClick={handleLogin}
+        onClick={handleLogin}
         _hover={{ bg: 'blue.600' }}
         _active={{ bg: 'blue.700' }}
       >
